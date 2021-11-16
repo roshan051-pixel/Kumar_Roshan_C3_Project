@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
@@ -83,12 +84,16 @@ class RestaurantTest {
     
     
     
-    //TDD approach, failing test case
+    //TDD approach, passed test case
     @Test
     public void when_items_selected_total_cost_should_be_returned() {
-    	restaurant = null;
-    	List<String> selectedItems = null;
+    	restaurant =new Restaurant("Amelie's cafe","Chennai",openingTime,closingTime);
+    	List<String> selectedItems = new ArrayList<>();
+    	selectedItems.add("Sweet corn soup");
+    	selectedItems.add("Vegetable lasagne");
     	int totalCost = restaurant.getTotalCost(selectedItems);
+    	
+    	assertEquals(388, totalCost); 
     }
     
 }
